@@ -1,0 +1,151 @@
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2c0e3a;
+  width: 100%;
+}
+
+.logo-score-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-score-container {
+    width: 85%;
+  }
+}
+
+.website-logo {
+  width: 100px;
+}
+
+@media screen and (min-width: 576px) {
+  .website-logo {
+    width: 140px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .website-logo {
+    width: 240px;
+  }
+}
+
+.score-timer-container {
+  display: flex;
+  align-items: center;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
+}
+
+@media screen and (min-width: 576px) {
+  .score-container {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .score-container {
+    margin-right: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .score-container {
+    margin-right: 36px;
+  }
+}
+.score-heading {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+@media screen and (min-width: 576px) {
+  .score-heading {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .score-heading {
+    font-size: 30px;
+    margin-right: 8px;
+  }
+}
+
+.score-value {
+  color: #fec653;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 576px) {
+  .score-value {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .score-value {
+    font-size: 36px;
+  }
+}
+
+.timer-seconds-container {
+  display: flex;
+  align-items: center;
+}
+
+.timer-img {
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 576px) {
+  .timer-img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .timer-img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.timer-value {
+  color: #fec653;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+@media screen and (min-width: 576px) {
+  .timer-value {
+    font-size: 20px;
+    margin-left: 6px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .timer-value {
+    font-size: 30px;
+    margin-left: 8px;
+  }
+}
