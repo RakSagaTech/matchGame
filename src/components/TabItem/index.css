@@ -21,29 +21,57 @@
 .tab-btn {
   display: flex;
   align-items: center;
-  color: #fec653;
   border: none;
-  border-bottom: 2px solid #fec653;
   font-family: 'Roboto';
-  font-size: 12px;
-  font-weight: 500px;
   background-color: transparent;
 }
 
+.active-tab {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fec653;
+  border-bottom: 2px solid #fec653;
+}
+
 @media screen and (min-width: 576px) {
-  .tab-btn {
+  .active-tab {
     font-size: 20px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .tab-btn {
+  .active-tab {
     font-size: 28px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .tab-btn {
+  .active-tab {
+    font-size: 34px;
+  }
+}
+
+.inactive-tab{
+  font-size: 12px;
+  font-weight: 500;
+  color:#ffffff;
+}
+
+
+@media screen and (min-width: 576px) {
+  .inactive-tab {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inactive-tab {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .inactive-tab {
     font-size: 34px;
   }
 }
