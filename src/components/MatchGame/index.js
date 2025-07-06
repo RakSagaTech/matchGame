@@ -259,6 +259,103 @@ class MatchGame extends Component {
     totalSeconds: 60,
   }
 
+  componentDidMount() {
+    this.timerId = setInterval(this.startTimer, 1000)
+  }
+
+  componentWillUnmount() {
+    this.clearTimer()
+  }
+
+  clearTimer = () => {
+    clearInterval(this.timerId)
+  }
+
+  startTimer = () => {
+    const {totalSeconds} = this.state
+
+    if (totalSeconds <= 0) {
+      this.clearTimer()
+      this.setState({
+        isGameOver: true,
+      })
+    } else {
+      this.setState(prevState => ({
+        totalSeconds: prevState.totalSeconds - 1,
+      }))
+    }
+  }
+
+  setActiveImageList = () => {
+    const randomIndex = Math.floor(Math.random() * imagesList.length)
+    const newImageList = imagesList[randomIndex]
+
+    this.setState({
+      activeImageList: newImageList,
+    })
+  }
+
+  matchImage = id => {
+    const {activeImageList} = this.state
+    const imageObject = imagesList.find(eachImage => eachImage.id === id)
+
+    if (imageObject && imageObject.id === activeImageList.id) {
+      this.setState(prevState => ({
+        score: prevState.score + 1,
+      }))
+      this.setActiveImageList()
+    } else {
+      this.clearTimer()
+      this.setState({
+        isGameOver: true,
+        totalSeconds: 60,
+      })
+    }
+  }
+
+  setActiveTab = tabId => {
+    this.setState({
+      activeTabId: tabId,
+    })
+  }
+
+  onClickPlayAgain = () => {
+    this.setState({
+      isGameOver: false,
+      totalSeconds: 60,
+      score: 0,
+    })
+  }
+
+  renderGameOverView = () => {
+    const {score} = this.state
+    return (
+      <div className="game-over-container">
+        <div className="score-button-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/match-game-trophy.png"
+            alt="trophy"
+            className="trophy-image"
+          />
+          <p className="your-score">YOUR SCORE</p>
+          <p className="score-count"> {score} </p>
+          <button
+            type="button"
+            className="play-again-button"
+            onClick={this.onClickPlayAgain}
+          >
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
+              alt="reset"
+              className="reset"
+            />
+            <p className="play-again"> PLAY AGAIN </p>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   renderGamerView = () => {
     const {activeTabId, activeImageList} = this.state
     const filteredImagesList = imagesList.filter(
@@ -277,7 +374,7 @@ class MatchGame extends Component {
               key={eachTab.tabId}
               tabDetails={eachTab}
               isActive={eachTab.tabId === activeTabId}
-              onChangeActiveTabId={this.onChangeActiveTabId}
+              setActiveTab={this.setActiveTab}
             />
           ))}
         </ul>
@@ -300,7 +397,7 @@ class MatchGame extends Component {
       <div className="app-container">
         <NavBar totalSeconds={totalSeconds} score={score} />
         <div className="responsive-container">
-          {isGameOver ? '' : this.renderGamerView()}
+          {isGameOver ? this.renderGameOverView() : this.renderGamerView()}
         </div>
       </div>
     )
